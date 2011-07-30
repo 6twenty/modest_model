@@ -8,6 +8,6 @@ Gem::Specification.new do |s|
   s.version = "0.0.1"
   
   s.add_dependency "activemodel", "~> 3"
-  s.add_development_dependency "rails", "~> 3"
+  s.add_development_dependency "rails", "~> 3.1.rc5"
   s.add_development_dependency "sqlite3"
 end
