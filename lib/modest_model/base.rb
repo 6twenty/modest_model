@@ -1,4 +1,4 @@
-module SimpleModel
+module ModestModel
   class Base
     include ActiveModel::Conversion
     extend ActiveModel::Naming
@@ -6,7 +6,7 @@ module SimpleModel
     include ActiveModel::Validations
     include ActiveModel::AttributeMethods
 
-    include SimpleModel::Validators
+    include ModestModel::Validators
     
     def initialize(attributes = {})
       attributes.each do |attr, value|

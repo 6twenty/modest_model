@@ -1,4 +1,4 @@
-module SimpleModel
+module ModestModel
   module Validators
     class AbsenceValidator < ActiveModel::EachValidator
       def validate_each(record, attribute, value)

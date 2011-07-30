@@ -1,7 +1,7 @@
 require 'test_helper'
 require 'fixtures/sample_model'
 
-class SimpleModelTest < ActiveSupport::TestCase
+class ModestModelTest < ActiveSupport::TestCase
   test "validates absence of nickname" do
     sample = SampleModel.new(:nickname => "Spam")
     assert !sample.valid?
