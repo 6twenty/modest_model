@@ -1,12 +1,12 @@
 module ModestModel
   class Base
-    include ActiveModel::Conversion
-    extend ActiveModel::Naming
-    extend ActiveModel::Translation
-    include ActiveModel::Validations
-    include ActiveModel::AttributeMethods
+    include   ActiveModel::Conversion
+    extend    ActiveModel::Naming
+    extend    ActiveModel::Translation
+    include   ActiveModel::Validations
+    include   ActiveModel::AttributeMethods
 
-    include ModestModel::Validators
+    include   ModestModel::Validators
     
     def initialize(attributes = {})
       attributes.each do |attr, value|
