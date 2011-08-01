@@ -19,6 +19,26 @@ Inspired by Crafting Rails Applications by Jose Valim, ModestModel provides an A
     
     # => #<SampleModel @name="Michael"...
     
+## Installation
+
+ModestModel has been tested and works on MRI 1.8.7 and 1.9.2.
+
+### Rubygems
+
+    gem install modest_model
+    
+### Bundler
+
+    gem 'modest_model'
+    
+### Usage
+
+Similar to ActiveRecord models, simply create a class which inherits from `ModestModel::Base`, and define the attributes by calling the `attributes` method:
+
+    class SampleModel < ModestModel::Base
+      attributes :name, :email
+    end
+
 ## Features
 
 ModestModel includes the following ActiveModel modules:
