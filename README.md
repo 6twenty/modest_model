@@ -33,7 +33,7 @@ ModestModel has been tested and works on MRI 1.8.7 and 1.9.2.
     
 ### Usage
 
-Similar to ActiveRecord models, simply create a class which inherits from `ModestModel::Base`, and define the attributes by calling the `attributes` method:
+Similar to ActiveRecord models, simply create a class which inherits from `ModestModel::Base`. You'll need to define some attributes - this is achieved by calling the `attributes` method passing in the attribute names you require:
 
     class SampleModel < ModestModel::Base
       attributes :name, :email
