@@ -1,4 +1,4 @@
-# ModestModel
+# ModestModel [![Build Status](https://secure.travis-ci.org/6twenty/modest_model.png)](https://secure.travis-ci.org/6twenty/modest_model.png])
 
 ## Overview
 
