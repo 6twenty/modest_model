@@ -3,6 +3,7 @@ module ModestModel
     include   ActiveModel::Conversion
     extend    ActiveModel::Naming
     extend    ActiveModel::Translation
+    include   ActiveModel::Serialization
     include   ActiveModel::Validations
     include   ActiveModel::AttributeMethods
 
