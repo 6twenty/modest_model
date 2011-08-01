@@ -2,7 +2,7 @@
 
 ## Overview
 
-Inspired by Crafting Rails Applications by Jose Valim, ModestModel provides an ActiveModel-compliant class that allows you to quickly create simple, table-less models. The intended use is to back interactions with external APIs with Ruby-friendly models rather than raw structured data (such as hashes).
+Inspired by [Crafting Rails Applications](http://pragprog.com/book/jvrails/crafting-rails-applications), ModestModel provides an ActiveModel-compliant class that allows you to quickly create simple, table-less models. The intended use is to back interactions with external APIs with Ruby-friendly models rather than raw structured data (such as hashes).
 
 ## Example
 
@@ -51,7 +51,7 @@ ModestModel includes the following ActiveModel modules:
 
 These allow your ModestModel models to act almost the same as an ActiveRecord model, but without the database. You can mass-assign attributes, add validations, add translations, and call familiar methods like `model_name.human`.
 
-Please refer to chapter 2, Building Models with Active Model, from [Crafting Rails Applications](http://pragprog.com/book/jvrails/crafting-rails-applications) for an in-depth explanation of the inner workings of ModestModel.
+ModestModel was extracted from the Mail Form gem described in chapter 2, "Building Models with Active Model", of [Crafting Rails Applications](http://pragprog.com/book/jvrails/crafting-rails-applications) by Jose Valim. This chapter therefore provides an excellent in-depth explanation of the inner workings of ModestModel.
 
 ## Credits
 
