@@ -55,4 +55,4 @@ ModestModel was extracted from the Mail Form gem described in chapter 2, "Buildi
 
 ## Credits
 
-This code has been derived from Crafting Rails Applications by Jose Valim, so all credit goes to Jose and [Plataforma](http://blog.plataformatec.com.br/) for granting permission to release this gem.
+This code has been derived from [Crafting Rails Applications](http://pragprog.com/book/jvrails/crafting-rails-applications) by Jose Valim, so all credit goes to Jose and [Plataforma](http://blog.plataformatec.com.br/) for granting permission to release this gem.
