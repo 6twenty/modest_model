@@ -46,10 +46,11 @@ ModestModel includes the following ActiveModel modules:
 * `ActiveModel::Conversion`
 * `ActiveModel::Naming`
 * `ActiveModel::Translation`
+* `ActiveModel::Serialization`
 * `ActiveModel::Validations`
 * `ActiveModel::AttributeMethods`
 
-These allow your ModestModel models to act almost the same as an ActiveRecord model, but without the database. You can mass-assign attributes, add validations, add translations, and call familiar methods like `model_name.human`.
+These allow your ModestModel models to act almost the same as an ActiveRecord model, but without the database. You can mass-assign attributes, add validations, add translations, and call familiar methods like `model_name.human` and `to_json`.
 
 ModestModel was extracted from the Mail Form gem described in chapter 2, "Building Models with Active Model", of [Crafting Rails Applications](http://pragprog.com/book/jvrails/crafting-rails-applications) by Jose Valim. This chapter therefore provides an excellent in-depth explanation of the inner workings of ModestModel.
 
