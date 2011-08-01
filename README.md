@@ -6,7 +6,7 @@ Inspired by [Crafting Rails Applications](http://pragprog.com/book/jvrails/craft
 
 ## Example
 
-    json = MyExternalApi.call('/some/path')
+    json = MyExternalApi.call('/some/path.json')
     attributes_hash = JSON.decode(json)
     
     # => {'name' => 'Michael', 'email' => 'michael@example.com'}
