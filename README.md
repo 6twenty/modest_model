@@ -2,7 +2,7 @@
 
 ## Overview
 
-Inspired by Crafting Rails Applications by Jose Valim, ModestModel is an ActiveModel-compliant class that allows you to quickly create simple, table-less models. The intended use is to back interactions with external APIs with Ruby-friendly models rather than hashes.
+Inspired by Crafting Rails Applications by Jose Valim, ModestModel provides an ActiveModel-compliant class that allows you to quickly create simple, table-less models. The intended use is to back interactions with external APIs with Ruby-friendly models rather than raw structured data (such as hashes).
 
 ## Example
 
