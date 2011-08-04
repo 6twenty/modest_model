@@ -9,10 +9,8 @@ module ModestModel
 
     include   ModestModel::Validators
     
-    def initialize(attributes = {})
-      attributes.each do |attr, value|
-        self.send("#{attr}=", value)
-      end unless attributes.blank?
+    def initialize(attributes = {}, options={})
+      self.assign_attributes(attributes, options)
     end
 
     class_attribute :_attributes
@@ -35,12 +33,30 @@ module ModestModel
       end
     end
     
+    def attributes= attributes, options = {}
+      assign_attributes attributes, options = {}
+    end
+    
+    def [] attr
+      attributes[attr.to_s]
+    end
+    
+    def []= attr, val
+      self.send "#{attr}=", val
+    end
+    
     def persisted?
       false
     end
-
+    
     protected
-
+    
+    def assign_attributes attributes, options = {}
+      attributes.each do |attr, value|
+        self[attr] = value
+      end unless attributes.blank?
+    end
+        
     def clear_attribute(attribute)
       send("#{attribute}=", nil)
     end
