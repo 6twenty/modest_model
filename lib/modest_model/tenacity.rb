@@ -153,7 +153,7 @@ module ModestModel
       private
         
         def create_or_update #:nodoc:
-          new_resource? ? create : update
+          valid? ? (new_resource? ? create : update) : false
         end
         
         def create #:nodoc:

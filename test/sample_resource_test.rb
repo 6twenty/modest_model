@@ -94,6 +94,21 @@ class SampleResourceTest < ActiveSupport::TestCase
     SampleResource.set_primary_key :id
   end
   
+  # Testing the validations on save
+  
+  test "the validations work on save not just valid?" do
+    sample = SampleResource.new(:number => 'INVALID')
+    assert_equal false, sample.save
+    assert_equal ["is not a number"], sample.errors[:number]
+
+    sample = SampleResource.create(:number => 'INVALID')
+    assert_equal ["is not a number"], sample.errors[:number]
+
+    sample = SampleResource.new
+    assert_equal false, sample.update_attributes(:number => 'INVALID')
+    assert_equal ["is not a number"], sample.errors[:number]
+  end
+  
   # Testing the callbacks
   
   test "the find callback works" do

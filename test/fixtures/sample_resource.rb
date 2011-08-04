@@ -1,8 +1,9 @@
 class SampleResource < ModestModel::Resource
-  attributes :id, :name, :email
+  attributes :id, :name, :email, :number
   attributes :nickname, :saved_at, :destroyed_at
   attributes :find_callback, :create_callback, :save_callback, :update_callback, :destroy_callback
   validates :nickname, :absence => true
+  validates :number, :numericality => {:allow_blank => true}
   
   after_find :set_find_callback
   def set_find_callback
