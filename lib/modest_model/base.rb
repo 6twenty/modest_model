@@ -8,6 +8,7 @@ module ModestModel
     include   ActiveModel::AttributeMethods
 
     include   ModestModel::Validators
+    extend    ModestModel::CombinedAttr
     
     def initialize(attributes = {}, options={})
       self.assign_attributes(attributes, options)
