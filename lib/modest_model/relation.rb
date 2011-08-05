@@ -52,7 +52,7 @@ module ModestModel
           if association_type == :has_many
             raise_error = true unless value.nil? || value.kind_of?(Array)
             if value
-              value.reject! { |item| !(expected_value =~ /#{item.class.to_s}/) }
+              value.reject! { |item| !(item.class.to_s =~ /#{expected_value}/) }
               unless value.is_a?(ModestModel::Collection)
                 collection = Collection.new(class_name)
                 value.each { |v| collection << v }
@@ -60,7 +60,7 @@ module ModestModel
               end
             end
           else
-            raise_error = true unless value.nil? || expected_value =~ /#{value.class.to_s}/
+            raise_error = true unless value.nil? || value.class.to_s =~ /#{expected_value}/
           end
           
           if raise_error
