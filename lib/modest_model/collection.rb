@@ -7,7 +7,7 @@ module ModestModel
     
     def <<(value)
       msg = "#{@class_name} expected, got #{value.class.to_s}"
-      raise AssociationTypeMismatch.new(msg) unless value.nil? || @class_name =~ /#{value.class.to_s}/
+      raise AssociationTypeMismatch.new(msg) unless value.nil? || value.class.to_s =~ /#{@class_name}/
       super(value)
     end
     
