@@ -8,4 +8,5 @@ module ModestModel
   autoload :Base,         File.expand_path('../modest_model/base', __FILE__)
   autoload :Validators,   File.expand_path('../modest_model/validators', __FILE__)
   autoload :Relation,     File.expand_path('../modest_model/relation', __FILE__)
+  autoload :Collection,   File.expand_path('../modest_model/collection', __FILE__)
 end
