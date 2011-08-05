@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/6twenty/modest_model'
   
   s.add_dependency "activemodel", "~> 3"
+  s.add_dependency "activesupport", "~> 3"
   s.add_development_dependency "rails", "~> 3.1.rc5"
   s.add_development_dependency "sqlite3"
 end
