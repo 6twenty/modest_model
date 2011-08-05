@@ -55,15 +55,15 @@ module ModestModel
     
       # Define defaults
       def initialize attributes={}
-        send(:class)._belongs_to_cache.each { |name| send(:instance_variable_set, "@#{name}".to_sym, nil) }
-        send(:class)._has_one_cache.each    { |name| send(:instance_variable_set, "@#{name}".to_sym, nil) }
-        send(:class)._has_many_cache.each   { |name| send(:instance_variable_set, "@#{name}".to_sym, []) }
+        self.send(:class)._belongs_to_cache.each { |name| self.send(:instance_variable_set, "@#{name}".to_sym, nil) }
+        self.send(:class)._has_one_cache.each    { |name| self.send(:instance_variable_set, "@#{name}".to_sym, nil) }
+        self.send(:class)._has_many_cache.each   { |name| self.send(:instance_variable_set, "@#{name}".to_sym, []) }
         super(attributes) # initialize as usual
       end
     
       # Exclude the associations from the attributes hash
       def attributes
-        super.except(*send(:class)._associations.map(&:to_s))
+        super.except(*self.class._associations.map(&:to_s))
       end
       
     end
