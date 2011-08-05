@@ -8,6 +8,7 @@ module ModestModel
     include   ActiveModel::AttributeMethods
 
     include   ModestModel::Validators
+    include   ModestModel::Relation
     
     def initialize(attributes = {})
       attributes.each do |attr, value|
