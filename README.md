@@ -4,7 +4,7 @@
 
 Inspired by [Crafting Rails Applications](http://pragprog.com/book/jvrails/crafting-rails-applications), ModestModel makes working with structured data (like hashes) friendlier and more flexible. ModestModel models mimic ActiveRecord models to make them familiar to most developers and provide a base from which to build custom models should you need to.
 
-## Generic Example
+## ModestModel::Generic
 
 In it's most basic form, ModestModel simply works like a hash:
 
@@ -35,9 +35,9 @@ Perhaps you prefer the JSON style of working with objects?
     
 `ModestModel.new` creates a brand new class for you, which makes it easy to extend on the fly. The class inherits from `ModestModel::Generic`, which adds a few helper methods (providing the hash and JSON functionality) and in turn inherits from `ModestModel::Base` (see below).
 
-## Structured Example
+## ModestModel::Base
 
-If you're like me, you prefer a more structured approach of defining your models beforehand. ModestModel was created to support an external API which returns JSON data:
+If you're like me, you prefer a more structured approach of defining your models beforehand, allowing you to really fine-tune the organisation and functionality of your models. One example is to use ModestModel to back calls to an external API, wrapping JSON in a friendly ModestModel object:
 
     json = MyExternalApi.call('/some/path.json')
     attributes_hash = JSON.decode(json)
@@ -45,6 +45,8 @@ If you're like me, you prefer a more structured approach of defining your models
 
     class SampleModel < ModestModel::Base
       attributes :name, :email
+      
+      # add your custom methods here...
     end
     
     sm = SampleModel.new(attributes_hash)
@@ -55,7 +57,7 @@ If you're like me, you prefer a more structured approach of defining your models
     
 But there's much more to it than that! ModestModel includes a great deal of functionality provided by ActiveModel, and then some!
 
-### Validations
+### Validations!
 
     class SampleModel < ModestModel::Base
       attributes :name, :email
@@ -70,7 +72,7 @@ But there's much more to it than that! ModestModel includes a great deal of func
     sm.valid?
     # => true
     
-### Associations
+### Associations!
 
     class Parent < ModestModel::Base
       attributes :name
@@ -105,6 +107,12 @@ But there's much more to it than that! ModestModel includes a great deal of func
     
     p.children = [u]
     # => AssociationTypeMismatch: expected Child, got Uncle
+
+### And much more!
+
+A great deal of functionality from ActiveModel is available in your ModestModels, so they act almost the same as an ActiveRecord model - but without the database. You can mass-assign attributes, add validations, add translations, and call familiar methods like `model_name.human` and `to_json`.
+
+ModestModel began by extracting the Mail Form gem from chapter 2, "Building Models with Active Model", of [Crafting Rails Applications](http://pragprog.com/book/jvrails/crafting-rails-applications) by Jose Valim. This chapter therefore provides an excellent in-depth explanation of some of the inner workings of ModestModel.
     
 ## Installation
 
@@ -117,12 +125,6 @@ ModestModel has been tested on MRI 1.8.7 and 1.9.2.
 ### Bundler
 
     gem 'modest_model'
-
-## Features
-
-Your ModestModel models act almost the same as an ActiveRecord model, but without the database. You can mass-assign attributes, add validations, add translations, and call familiar methods like `model_name.human` and `to_json`.
-
-ModestModel began by extracting the Mail Form gem from chapter 2, "Building Models with Active Model", of [Crafting Rails Applications](http://pragprog.com/book/jvrails/crafting-rails-applications) by Jose Valim. This chapter therefore provides an excellent in-depth explanation of some of the inner workings of ModestModel.
 
 ## Credits
 
