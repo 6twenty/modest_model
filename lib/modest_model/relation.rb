@@ -17,17 +17,17 @@ module ModestModel
     module ClassMethods
       
       # has_one
-      def has_one association_name, *args
+      def has_one(association_name, *args)
         define_association_methods(:has_one, association_name, *args) if association_name
       end
       
       # has_many
-      def has_many association_name, *args
+      def has_many(association_name, *args)
         define_association_methods(:has_many, association_name, *args) if association_name
       end
       
       # belongs_to
-      def belongs_to association_name, *args
+      def belongs_to(association_name, *args)
         define_association_methods(:belongs_to, association_name, *args) if association_name
       end
       
@@ -42,7 +42,7 @@ module ModestModel
         setter = "#{association_name}="
 
         define_method(getter) do
-          default = association_type == :has_many ? Collection.new(class_name) : nil
+          default = association_type == :has_many ? HasManyCollection.new(class_name) : nil
           instance_variable_set("@#{association_name}", instance_variable_get("@#{association_name}") || default)
         end
         
@@ -52,11 +52,8 @@ module ModestModel
           if association_type == :has_many
             raise_error = true unless value.nil? || value.kind_of?(Array)
             if value
-              value.reject! { |item| !(item.class.to_s =~ /#{expected_value}/) }
-              unless value.is_a?(ModestModel::Collection)
-                collection = Collection.new(class_name)
-                value.each { |v| collection << v }
-                value = collection
+              unless value.is_a?(ModestModel::HasManyCollection)
+                value = value.inject(HasManyCollection.new(class_name)) { |collection, item| collection << item; collection }
               end
             end
           else
@@ -70,6 +67,8 @@ module ModestModel
           
           instance_variable_set("@#{association_name}", value)
         end
+        
+        self # return the class
       end
     end
   end
