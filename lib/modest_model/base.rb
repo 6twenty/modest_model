@@ -10,7 +10,7 @@ module ModestModel
     include   ModestModel::Validators
     include   ModestModel::Relation
     
-    def initialize(attributes = {})
+    def initialize(attributes={})
       attributes.each do |attr, value|
         self.send("#{attr}=", value)
       end unless attributes.blank?
