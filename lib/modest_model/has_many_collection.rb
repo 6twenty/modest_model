@@ -1,5 +1,5 @@
 module ModestModel
-  class Collection < Array
+  class HasManyCollection < Array
     
     def initialize class_name
       @class_name = class_name.to_s.singularize.camelize
