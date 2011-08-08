@@ -22,8 +22,6 @@ module ModestModel
     # Support removing attributes entirely
     def delete(attribute)
       if self.respond_to?(attribute)
-        current_value = self.send(attribute)
-        self.send("clear_#{attribute}")
         self.class._attributes = self.class._attributes - [attribute]
         self.class.send(:undef_method, "#{attribute}")  if self.class.method_defined?("#{attribute}")
         self.class.send(:undef_method, "#{attribute}=") if self.class.method_defined?("#{attribute}=")
