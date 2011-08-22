@@ -11,18 +11,20 @@ Inspired by [Crafting Rails Applications](http://pragprog.com/book/jvrails/craft
 
 ## Example
 
-    json = MyExternalApi.call('/some/path.json')
-    attributes_hash = JSON.decode(json)
-    
-    # => {'name' => 'Michael', 'email' => 'michael@example.com'}
+```ruby
+json = MyExternalApi.call('/some/path.json')
+attributes_hash = JSON.decode(json)
 
-    class SampleModel < ModestModel::Base
-      attributes :name, :email
-    end
-    
-    SampleModel.new(attributes_hash)
-    
-    # => #<SampleModel @name="Michael"...
+# => {'name' => 'Michael', 'email' => 'michael@example.com'}
+
+class SampleModel < ModestModel::Base
+  attributes :name, :email
+end
+
+SampleModel.new(attributes_hash)
+
+# => #<SampleModel @name="Michael"...
+```
     
 ## Installation
 
@@ -30,19 +32,25 @@ ModestModel has been tested and works on MRI 1.8.7 and 1.9.2.
 
 ### Rubygems
 
-    gem install modest_model
-    
+```ruby
+gem install modest_model
+```
+
 ### Bundler
 
-    gem 'modest_model'
-    
+```ruby
+gem 'modest_model'
+```
+
 ### Usage
 
 Similar to ActiveRecord models, simply create a class which inherits from `ModestModel::Base`. You'll need to define some attributes - this is achieved by calling the `attributes` method passing in the attribute names you require:
 
-    class SampleModel < ModestModel::Base
-      attributes :name, :email
-    end
+```ruby
+class SampleModel < ModestModel::Base
+  attributes :name, :email
+end
+```
 
 ## Features
 
