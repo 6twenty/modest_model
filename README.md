@@ -4,7 +4,7 @@
 
 Inspired by [Crafting Rails Applications](http://pragprog.com/book/jvrails/crafting-rails-applications), ModestModel provides an ActiveModel-compliant class that allows you to quickly create simple, table-less models. The intended use is to back interactions with external APIs with Ruby-friendly models rather than raw structured data (such as hashes).
 
-**Notice:** we are extending ModestModel's features significantly to give developers more flexibility and freedom when working with table-less models. Some of the upcoming features include:
+**Notice:** we're extending ModestModel's features significantly to give developers more flexibility and freedom when working with table-less models. Some of the upcoming features include:
 
 - **ActiveRecord support:** including simple delegation of methods like `save` and `destroy`, associations (`has_many`, `belongs_to` and friends) and other commonly used ActiveRecord features
 - **Basic objects:** to make working with simple key/value data sets easier and friendlier (think of a blend of a Hash and a Struct bundled with a collection of helpful methods)
